@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Credit Card Screen</string>
+    <string name="card_number_placeholder">**** **** **** ****</string>
+    <string name="card_holder">CARD HOLDER</string>
+    <string name="expiry">Expiry</string>
+    <string name="hint_card_holder_name">Card holder name</string>
+    <string name="hint_card_number">Card number</string>
+    <string name="hint_expiry_date">Expiry date</string>
+    <string name="hint_cvv">CVV</string>
+</resources>

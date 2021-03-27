@@ -7,4 +7,6 @@
     <string name="hint_card_number">Card number</string>
     <string name="hint_expiry_date">Expiry date</string>
     <string name="hint_cvv">CVV</string>
+    <string name="card_expired">This card is expired</string>
+    <string name="card_exp_date_error">Format exception</string>
 </resources>

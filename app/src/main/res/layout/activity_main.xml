@@ -5,6 +5,11 @@
 
     <data>
 
+        <import type="com.aiman.creditcardscreen.ui.MainViewModel" />
+
+        <variable
+            name="viewModel"
+            type="MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,6 +38,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.cardHolderName}"
                 android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -51,6 +57,7 @@
                 android:id="@+id/et_card_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.cardNumber}"
                 android:inputType="number"
                 android:maxLength="16" />
 
@@ -76,9 +83,11 @@
             app:layout_constraintTop_toBottomOf="@+id/text_input_card_number">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_expiry_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="date"
+                android:text="@={viewModel.cardExpiry}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,6 +106,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.cardCVV}"
                 android:inputType="number"
                 android:maxLength="3" />
 

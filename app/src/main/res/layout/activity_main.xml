@@ -31,6 +31,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            visible="@{!viewModel.cardSaved}"
             android:layout_marginTop="24dp"
             android:hint="@string/hint_card_holder_name"
             app:layout_constraintTop_toBottomOf="@+id/front_side">
@@ -48,6 +49,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            visible="@{!viewModel.cardSaved}"
             android:layout_marginTop="8dp"
             android:hint="@string/hint_card_number"
             app:layout_constraintTop_toBottomOf="@+id/text_input_name"
@@ -77,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="4dp"
+            visible="@{!viewModel.cardSaved}"
             android:hint="@string/hint_expiry_date"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,12 +101,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
+            visible="@{!viewModel.cardSaved}"
             android:hint="@string/hint_cvv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/text_input_card_number">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_card_cvv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={viewModel.cardCVV}"
@@ -112,10 +117,62 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ImageView
+            android:id="@+id/temp_img"
+            visible="@{viewModel.cardSaved}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/green_circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/front_side" />
+
+        <ImageView
+            android:id="@+id/done"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/avd_done"
+            app:layout_constraintBottom_toBottomOf="@+id/temp_img"
+            app:layout_constraintEnd_toEndOf="@+id/temp_img"
+            app:layout_constraintStart_toStartOf="@+id/temp_img"
+            app:layout_constraintTop_toTopOf="@+id/temp_img" />
+
+        <TextView
+            android:id="@+id/tv_card_saved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto_regular"
+            android:letterSpacing="0.1"
+            android:text="@string/card_saved"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temp_img"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/save_btn"
+            visible="@{!viewModel.cardSaved}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="onClick"
+            android:text="@string/save_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_input_expiry_date" />
+
         <Button
             android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:visibility="gone"
             android:text="flip"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

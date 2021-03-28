@@ -40,10 +40,10 @@
             <ImageView
                 android:id="@+id/imageView2"
                 cardType="@{viewModel.cardType}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_master_card"
+                tools:src="@drawable/ic_master_card_logo"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imageView" />

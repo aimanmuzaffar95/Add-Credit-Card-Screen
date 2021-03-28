@@ -12,5 +12,5 @@ class MainViewModel : ViewModel() {
     val cardExpiry = MutableLiveData("")
     val cardCVV = MutableLiveData("")
     val cardType = MutableLiveData(CardType.NO_TYPE)
-
+    val cardSaved = MutableLiveData(false)
 }

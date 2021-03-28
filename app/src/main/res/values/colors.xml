@@ -11,4 +11,5 @@
     <color name="blank_card">#78909c</color>
     <color name="visa_card">#03A9F4</color>
     <color name="master_card">#ffc400</color>
+    <color name="green">#2979ff</color>
 </resources>

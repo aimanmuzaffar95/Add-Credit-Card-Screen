@@ -2,13 +2,10 @@ package com.aiman.creditcardscreen.binding
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import com.aiman.creditcardscreen.R
 import com.aiman.creditcardscreen.utils.CardType
 import com.bumptech.glide.Glide
-import com.google.android.material.textfield.TextInputEditText
 
 object Bindings {
     @JvmStatic
@@ -36,12 +33,20 @@ object Bindings {
             }
             CardType.VISA_CARD -> {
                 imageView.visibility = View.VISIBLE
-                Glide.with(imageView.context).load(R.drawable.ic_visa_logo).into(imageView)
+                Glide.with(imageView.context).load(R.drawable.ic_visa_logo).centerInside()
+                    .into(imageView)
             }
             CardType.MASTER_CARD -> {
                 imageView.visibility = View.VISIBLE
-                Glide.with(imageView.context).load(R.drawable.ic_master_card).into(imageView)
+                Glide.with(imageView.context).load(R.drawable.ic_master_card_logo).centerInside()
+                    .into(imageView)
             }
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("visible")
+    fun setVisibility(view: View, isVisible: Boolean) {
+        view.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 }

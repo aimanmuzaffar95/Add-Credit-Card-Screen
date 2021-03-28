@@ -19,4 +19,10 @@
         android:startOffset="500"
         android:valueFrom="0.0"
         android:valueTo="1.0" />
+
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="positionX"
+        android:valueFrom="-1000"
+        android:valueTo="X" />
 </set>

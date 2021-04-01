@@ -8,7 +8,6 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import com.aiman.creditcardscreen.R
 import com.aiman.creditcardscreen.databinding.ActivityMainBinding
 import com.aiman.creditcardscreen.extensions.Extensions.setCreditCardTextWatcher
@@ -51,21 +50,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun flipCard() {
-        if (isFront) {
-            flipRightIn.setTarget(binding.backSide.backSide)
-            flipRightOut.setTarget(binding.frontSide.frontSide)
-            flipRightIn.start()
-            flipRightOut.start()
-        } else {
-            flipLeftIn.setTarget(binding.frontSide.frontSide)
-            flipLeftOut.setTarget(binding.backSide.backSide)
-            flipLeftIn.start()
-            flipLeftOut.start()
-        }
-        isFront = !isFront
-    }
-
     private fun setupAnimation() {
         val scale = applicationContext.resources.displayMetrics.density
         binding.frontSide.frontSide.cameraDistance = 16000 * scale
@@ -79,6 +63,21 @@ class MainActivity : AppCompatActivity() {
             AnimatorInflater.loadAnimator(this, R.animator.card_flip_right_in) as AnimatorSet
         flipRightOut =
             AnimatorInflater.loadAnimator(this, R.animator.card_flip_right_out) as AnimatorSet
+    }
+
+    private fun flipCard() {
+        if (isFront) {
+            flipRightIn.setTarget(binding.backSide.backSide)
+            flipRightOut.setTarget(binding.frontSide.frontSide)
+            flipRightIn.start()
+            flipRightOut.start()
+        } else {
+            flipLeftIn.setTarget(binding.frontSide.frontSide)
+            flipLeftOut.setTarget(binding.backSide.backSide)
+            flipLeftIn.start()
+            flipLeftOut.start()
+        }
+        isFront = !isFront
     }
 
     private fun setupViews() {

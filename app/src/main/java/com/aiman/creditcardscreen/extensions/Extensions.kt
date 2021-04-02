@@ -16,5 +16,4 @@ object Extensions {
         this.filters = arrayOf(CreditCardExpiryInputFilter())
     }
 
-
 }
